@@ -1,6 +1,5 @@
-Introduction:
-	See S2-PROJ1_v0.3a.docx in our Microsoft Teams team
-	Open this folder as a project in IntelliJ IDEA
+Voor de opdracht kijk in de folder van de Microsoft Teams kanaal
 
-Technology:
-	- JDK 15
+Open de folder als een project in IntelliJ IDEA
+
+JDK 15
