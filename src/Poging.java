@@ -7,6 +7,9 @@ class Poging {
 
     public Poging(Student student, Examen examen){
         //Nog ff leeglaten
+        this.student = student;
+        this.examen  = examen;
+        examenAfname();
     }
     public Student getStudent(){
         //Return de naam van de student
