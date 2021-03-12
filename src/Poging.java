@@ -21,10 +21,11 @@ class Poging {
     }
     public Boolean getGeslaagd(){
         //Kijk of de poging is geslaagd
-
+        return examen.getVoldoende();
     }
     public ArrayList<Student> hoogsteScore(){
         //Nog ff leeglaten
+        
     }
     public void examenAfname(){
 
