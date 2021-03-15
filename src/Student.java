@@ -6,7 +6,7 @@ public class Student {
     private String achterNaam;
     private Integer studentNumber;
     private static Integer uniekeNummer = 1;
-    private ArrayList<Student> studentenLijst;
+    private static ArrayList<Student> studentenLijst;
 
 
     public Student(String naam, String achterNaam, Integer studentNummer){
@@ -24,18 +24,49 @@ public class Student {
         return studentNumber;
     }
 
+    public String getAchterNaam() {
+        return achterNaam;
+    }
+
     public Integer getUniekeNummer() {
         return uniekeNummer++;
     }
 
-    public ArrayList<Student> getStudentenLijst(){
+    public static ArrayList<Student> getStudentenLijst(){
         return studentenLijst;
     }
 
     public Boolean studentExamenBehaald(Examen examen){
-
+        boolean initialState = false;
+        for (Poging poging: Poging.getPogingenLijst()) {
+            if (
+                    poging.getExamen() == examen && poging.getStudent == this && poging.getGeslaagd
+            ) {
+                initialState = true;
+            }
+        }
+        return initialState;
     }
 
+    public ArrayList<Poging> studentGeslaagd() {
+        ArrayList<Poging> behaaldeExamens = new ArrayList<Poging>();
+        for (Poging poging: Poging.getPogingenLijst()) {
+            if (poging.getStudent().getStudentNumber() == studentNumber &&
+            poging.getGeslaagd()) {
+                behaaldeExamens.add(poging);
+            }
+        }
 
+        return behaaldeExamens;
+    }
 
+    public static void verwijderStudent(int studentNumber) {
+        for (Student student: getStudentenLijst()) {
+            if (student.getStudentNumber() == studentNumber) {
+                int i = getStudentenLijst().indexOf(student);
+                getStudentenLijst().remove(i);
+            }
+        }
+
+    }
 }

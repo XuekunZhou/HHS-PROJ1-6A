@@ -79,7 +79,7 @@ public class Menu {
         System.out.println("Studenten lijst:");
 
         for (Student student: Student.getStudentenLijst()) {
-            System.out.println(student.getNummer() + ": " + student.getAchterNaam() + ", " + student.getNaam());
+            System.out.println(student.getStudentNumber() + ": " + student.getAchterNaam() + ", " + student.getNaam());
         }
 
         mainMenu();
@@ -113,7 +113,7 @@ public class Menu {
         String bevestiging = scanner.nextLine();
 
         if (bevestiging.equals("y")) {
-            Student.verwijderStudent(studentNummer); //maak nieuwe static method om student te verwijderen
+            Student.verwijderStudent(studentNummer);
             System.out.println("Student " + studentNummer + "vewrijderd");
         }
         else {
@@ -135,9 +135,9 @@ public class Menu {
         String examenNaam = scanner.nextLine();
 
 
-        for (Student student: Student.studentenLijst) { //maak list static
-            if (student.getStudentNummer() == studentNummer) {
-                if (student.studentExamenBehaald(examenNaam)) {
+        for (Student student: Student.getStudentenLijst()) {
+            if (student.getStudentNumber() == studentNummer) {
+                if (student.studentExamenBehaald(Examen examen)) {
                     System.out.print("Student " + studentNummer + " is geslaagd voor " + examenNaam);
                 }
                 else {
@@ -158,11 +158,11 @@ public class Menu {
         System.out.print("Student nummer: ");
         int studentNummer = scanner.nextInt();
 
-        for (Student student: Student.studentenLijst) {
-            if (student.getStudentNummer() == studentNummer) {
+        for (Student student: Student.getStudentenLijst()) {
+            if (student.getStudentNumber() == studentNummer) {
                 System.out.println("Student " + studentNummer + " is geslaagd voor:");
                 for (Poging poging: student.studentGeslaagd()) {
-                    System.out.println(examen.getNaam());
+                    System.out.println(poging.getExamen().getNaam());
                 }
             }
         }
@@ -177,7 +177,7 @@ public class Menu {
         System.out.println();
         System.out.println("Student met de hoogste score is:");
 
-        for (Student student: Poging.hoogsteScore()) { //maak method static
+        for (Student student: Poging.hoogsteScore()) {
             System.out.println(student.getNaam());
         }
 
