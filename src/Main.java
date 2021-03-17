@@ -1,6 +1,6 @@
 public class Main {
-
     public static void main(String[] args) {
+
 	// Made an array for a question with nested array for the options, where the first answer is the correct one.
         String[] examen1vragen =
                 {
@@ -70,6 +70,8 @@ public class Main {
                                 "Je haalt de sneeuw van de lichten en zet de raamverwarming aan.",
                                 "Je veegt je auto helemaal schoon en laat de motor alvast warm worden."
                         }
+
+
 
         };
 
