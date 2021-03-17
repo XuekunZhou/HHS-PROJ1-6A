@@ -110,6 +110,5 @@ public class Main {
                                 "Je gaat langzamer rijden en schuift op naar de linkerrijstrook als er ruimte is."
                         }
                 };
-
     }
 }
