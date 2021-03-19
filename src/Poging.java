@@ -96,7 +96,7 @@ class Poging {
             }
         }
 
-        if (questionGoed >= Examen.voldoende) {
+        if (questionGoed >= Examen.getVoldoende()) {
             geslaagd = true;
         } else {
             geslaagd = false;

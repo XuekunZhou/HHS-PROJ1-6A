@@ -37,9 +37,29 @@ public class Menu {
             verwijderMenu();
         }
         else if (keuze == 5) {
-            String student = scanner.nextLine();
+            System.out.print("Student nummer: ");
+            int student = scanner.nextInt();
+
+            System.out.print("Examen naam: ");
             String examen = scanner.nextLine();
-            //new Poging(student, examen);
+
+            Student studentTeDoen = null;
+            for (Student student1: Student.getStudentenLijst()) {
+                if (student == student1.getStudentNumber()) {
+                    studentTeDoen = student1;
+                    break;
+                }
+            }
+
+            Examen examenTeDoen = null;
+            for (Examen exam : Examen.getExamenLijst()) {
+                if (examen.equals(exam.getNaam())) {
+                    examenTeDoen = exam;
+                    break;
+                }
+            }
+
+            new Poging(studentTeDoen, examenTeDoen);
         }
         else if (keuze == 6) {
             studentTestMenu();
@@ -134,10 +154,18 @@ public class Menu {
         System.out.print("Examen naam: ");
         String examenNaam = scanner.nextLine();
 
+        Examen examenDieGecheckedWordt = null;
+        for (Examen exam : Examen.getExamenLijst()) {
+            if (examenNaam.equals(exam.getNaam())) {
+                examenDieGecheckedWordt = exam;
+                break;
+            }
+        }
+
 
         for (Student student: Student.getStudentenLijst()) {
             if (student.getStudentNumber() == studentNummer) {
-                if (student.studentExamenBehaald(Examen examen)) {
+                if (student.studentExamenBehaald(examenDieGecheckedWordt)) {
                     System.out.print("Student " + studentNummer + " is geslaagd voor " + examenNaam);
                 }
                 else {

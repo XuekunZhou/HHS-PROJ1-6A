@@ -3,16 +3,16 @@ import java.util.ArrayList;
 public class Examen {
     private String naam;
     private static Integer voldoende = 6;
-    private static ArrayList<Examen> examenLijst;
+    private static ArrayList<Examen> examenLijst= new ArrayList<Examen>();
     private ArrayList<Vraag> bevat;
 
+
     public Examen(String naam){
-
         this.naam = naam;
-        examenLijst = new ArrayList<Examen>();
         bevat = new ArrayList<Vraag>();
-    }
+        examenLijst.add(this);
 
+    }
 
     public String getNaam(){
         int examennmr = 0;
@@ -21,24 +21,21 @@ public class Examen {
         return this.naam;
     }
 
-    public ArrayList<String> getVragen(){
-        ArrayList<String> vragenLijst = new ArrayList<>();
-        fo
-
-        return vragenLijst;
+    public ArrayList<Vraag> getVragenLijst(){
+        return bevat;
     }
 
-    public Integer getVoldoende(){
+    public static Integer getVoldoende(){
         return voldoende;
     }
 
     public static ArrayList<Examen> getExamenLijst(){
-        return examenLijst();
+        return examenLijst;
     }
 
 
     public void addVragen(Vraag vraag){
-    bevat.add(Vraag.getToetsVraag());
+    bevat.add(vraag);
 
     }
 

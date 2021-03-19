@@ -9,11 +9,12 @@ public class Student {
     private static ArrayList<Student> studentenLijst;
 
 
-    public Student(String naam, String achterNaam, Integer studentNummer){
+    public Student(String naam, String achterNaam){
         this.naam = naam;
         this.achterNaam = achterNaam;
         this.studentNumber = getUniekeNummer();
         studentenLijst = new ArrayList<Student>();
+        studentenLijst.add(this);
     }
 
     public String getNaam() {
@@ -40,7 +41,7 @@ public class Student {
         boolean initialState = false;
         for (Poging poging: Poging.getPogingenLijst()) {
             if (
-                    poging.getExamen() == examen && poging.getStudent == this && poging.getGeslaagd
+                    poging.getExamen() == examen && poging.getStudent() == this && poging.getGeslaagd()
             ) {
                 initialState = true;
             }

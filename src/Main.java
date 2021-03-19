@@ -112,5 +112,22 @@ public class Main {
                                 "Je gaat langzamer rijden en schuift op naar de linkerrijstrook als er ruimte is."
                         }
                 };
+
+        Examen examen1 = new Examen("Verkeers Toets 1");
+        for (int i = 0; i < examen1vragen.length; i++) {
+            examen1.addVragen(new Vraag(examen1vragen[i], examen1opties[i], examen1opties[i][1]));
+        }
+
+        Examen examen2 = new Examen("Verkeers Toets 2");
+        for (int i = 0; i < examen2vragen.length; i++) {
+            examen2.addVragen(new Vraag(examen2vragen[i], examen2opties[i], examen2opties[i][1]));
+        }
+
+        Examen examen3 = new Examen("Verkeers Toets 3");
+        for (int i = 0; i < examen3vragen.length; i++) {
+            examen3.addVragen(new Vraag(examen3vragen[i], examen3opties[i], examen3opties[i][1]));
+        }
+
+        Menu.mainMenu();
     }
 }
