@@ -33,7 +33,7 @@ class Poging {
             system.out.println(examen.getExamenLijst);
         }
     }
-    public static void getPogingenLijst(){
+    public static ArrayList getPogingenLijst(){
         return this.pogingenLijst;
     }
 
