@@ -4,9 +4,9 @@ public class Student {
 
     private String naam;
     private String achterNaam;
-    private Integer studentNumber;
+    private final Integer studentNumber;
     private static Integer uniekeNummer = 1;
-    private static ArrayList<Student> studentenLijst = new ArrayList<Student>();
+    private static ArrayList<Student> studentenLijst = new ArrayList<>();
 
 
     public Student(String naam, String achterNaam){
@@ -43,15 +43,16 @@ public class Student {
                     poging.getExamen() == examen && poging.getStudent() == this && poging.getGeslaagd()
             ) {
                 initialState = true;
+                break;
             }
         }
         return initialState;
     }
 
     public ArrayList<Poging> studentGeslaagd() {
-        ArrayList<Poging> behaaldeExamens = new ArrayList<Poging>();
+        ArrayList<Poging> behaaldeExamens = new ArrayList<>();
         for (Poging poging: Poging.getPogingenLijst()) {
-            if (poging.getStudent().getStudentNumber() == studentNumber &&
+            if (poging.getStudent().getStudentNumber().equals(studentNumber) &&
             poging.getGeslaagd()) {
                 behaaldeExamens.add(poging);
             }

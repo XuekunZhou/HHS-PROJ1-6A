@@ -27,7 +27,7 @@ class Poging {
         return this.geslaagd;
     }
     public static ArrayList<Student> hoogsteScore(){
-        ArrayList studenten = new ArrayList();
+        ArrayList<Student> studenten = new ArrayList();
         ArrayList<Integer> score = new ArrayList();
 
         for (Poging poging: getPogingenLijst()) {
@@ -51,7 +51,7 @@ class Poging {
             highestScore = i;
             }
         }
-        ArrayList besteStudenten = new ArrayList();
+        ArrayList<Student> besteStudenten = new ArrayList<>();
         int j = 0;
         for (int i : score) {
 
@@ -71,6 +71,8 @@ class Poging {
 
 
         for(Vraag vraag: examen.getVragenLijst()) {
+            vraag.schudOpties();
+
             System.out.println();
             System.out.println("Vraag: " + vraag.getToetsVraag());
 
@@ -83,28 +85,26 @@ class Poging {
             System.out.print("Antwoord: ");
             String response = scan.nextLine();
 
-            if (response.equals("A")) {
-                if (vraag.getOpties().get(0).equals(vraag.getAntwoord())) {
-                    questionGoed = questionGoed + 2;
-                }
-            }
-            else if (response.equals("B")) {
-                if (vraag.getOpties().get(1).equals(vraag.getAntwoord())) {
-                    questionGoed = questionGoed + 2;
-                }
-            }
-            else if (response.equals("C")) {
-                if (vraag.getOpties().get(2).equals(vraag.getAntwoord())) {
-                    questionGoed = questionGoed + 2;
-                }
+            switch (response) {
+                case "A":
+                    if (vraag.getOpties().get(0).equals(vraag.getAntwoord())) {
+                        questionGoed = questionGoed + 2;
+                    }
+                    break;
+                case "B":
+                    if (vraag.getOpties().get(1).equals(vraag.getAntwoord())) {
+                        questionGoed = questionGoed + 2;
+                    }
+                    break;
+                case "C":
+                    if (vraag.getOpties().get(2).equals(vraag.getAntwoord())) {
+                        questionGoed = questionGoed + 2;
+                    }
+                    break;
             }
         }
 
-        if (questionGoed >= Examen.getVoldoende()) {
-            geslaagd = true;
-        } else {
-            geslaagd = false;
-        }
+        geslaagd = questionGoed >= Examen.getVoldoende();
 
         System.out.println();
         System.out.println("Score: " + questionGoed);

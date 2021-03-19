@@ -20,63 +20,44 @@ public class Menu {
 
         int keuze = scanner.nextInt();
 
-        if (keuze == 1) {
-            examenLijstMenu();
-        }
-        else if (keuze == 2) {
-            studentenLijstMenu();
-        }
-        else if (keuze == 3) {
-            inschrijfMenu();
-        }
-        else if (keuze == 4) {
-            verwijderMenu();
-        }
-        else if (keuze == 5) {
-            System.out.print("Student nummer: ");
-            int student = scanner.nextInt();
-            scanner.nextLine();
 
-            System.out.print("Examen naam: ");
-            String examen = scanner.nextLine();
-
-            Student studentTeDoen = null;
-            for (Student student1: Student.getStudentenLijst()) {
-                if (student == student1.getStudentNumber()) {
-                    studentTeDoen = student1;
-                    break;
+        switch (keuze) {
+            case 1 -> examenLijstMenu();
+            case 2 -> studentenLijstMenu();
+            case 3 -> inschrijfMenu();
+            case 4 -> verwijderMenu();
+            case 5 -> {
+                System.out.print("Student nummer: ");
+                int student = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Examen naam: ");
+                String examen = scanner.nextLine();
+                Student studentTeDoen = null;
+                for (Student student1 : Student.getStudentenLijst()) {
+                    if (student == student1.getStudentNumber()) {
+                        studentTeDoen = student1;
+                        break;
+                    }
                 }
-            }
-
-            Examen examenTeDoen = null;
-            for (Examen exam : Examen.getExamenLijst()) {
-                if (examen.equals(exam.getNaam())) {
-                    examenTeDoen = exam;
-                    break;
+                Examen examenTeDoen = null;
+                for (Examen exam : Examen.getExamenLijst()) {
+                    if (examen.equals(exam.getNaam())) {
+                        examenTeDoen = exam;
+                        break;
+                    }
                 }
+                new Poging(studentTeDoen, examenTeDoen);
             }
-
-            new Poging(studentTeDoen, examenTeDoen);
-        }
-        else if (keuze == 6) {
-            studentTestMenu();
-        }
-        else if (keuze == 7) {
-            examenStudentMenu();
-        }
-        else if (keuze == 8) {
-            hoogsteScoreMenu();
-        }
-        else if (keuze == 0) {
-            System.exit(0);
+            case 6 -> studentTestMenu();
+            case 7 -> examenStudentMenu();
+            case 8 -> hoogsteScoreMenu();
+            case 0 -> System.exit(0);
         }
     }
 
 
 
     public static void examenLijstMenu() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println();
         System.out.println("Examen lijst:");
 
@@ -90,8 +71,6 @@ public class Menu {
 
 
     public static void  studentenLijstMenu() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println();
         System.out.println("Studenten lijst:");
 
@@ -199,8 +178,6 @@ public class Menu {
 
 
     public static void hoogsteScoreMenu() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println();
         System.out.println("De studenten met de hoogste score zijn:");
 

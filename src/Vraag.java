@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -15,15 +16,13 @@ public class Vraag{
 
         this.opties = new ArrayList<>();
 
-        for (int i = 0; i < opties.length; i++) {
-            this.opties.add(opties[i]);
-        }
+        this.opties.addAll(Arrays.asList(opties));
     }
     public void schudOpties() {
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            int randint = random.nextInt(3);
+            int randint = random.nextInt(opties.size());
 
             String holder = opties.get(randint);
             opties.remove(randint);
