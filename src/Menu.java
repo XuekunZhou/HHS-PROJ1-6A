@@ -1,10 +1,6 @@
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
-        mainMenu();
-    }
-
 
     public static void mainMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -17,7 +13,7 @@ public class Menu {
         System.out.println("4) Student verwijderen");
         System.out.println("5) Examen afnemen");
         System.out.println("6) Is student geslaagd voor test?");
-        System.out.println("7) Welke examens geeft student gehaald?");
+        System.out.println("7) Welke examens heeft student gehaald?");
         System.out.println("8) Welke student heeft de meeste examens gehaald?");
         System.out.println("0) Exit");
         System.out.print("Keuze: ");
@@ -39,6 +35,7 @@ public class Menu {
         else if (keuze == 5) {
             System.out.print("Student nummer: ");
             int student = scanner.nextInt();
+            scanner.nextLine();
 
             System.out.print("Examen naam: ");
             String examen = scanner.nextLine();
@@ -83,8 +80,8 @@ public class Menu {
         System.out.println();
         System.out.println("Examen lijst:");
 
+        int i = 1;
         for (Examen examen: Examen.getExamenLijst()) {
-            int i = 1;
             System.out.println(i++ + ": " + examen.getNaam());
         }
 
@@ -129,12 +126,13 @@ public class Menu {
         System.out.println("Student verwijderen");
         System.out.print("Student nummer: ");
         int studentNummer = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Student " + studentNummer + " verwijderen? (y/n): ");
         String bevestiging = scanner.nextLine();
 
         if (bevestiging.equals("y")) {
             Student.verwijderStudent(studentNummer);
-            System.out.println("Student " + studentNummer + "vewrijderd");
+            System.out.println("Student " + studentNummer + " vewrijderd");
         }
         else {
             System.out.println("Student " + studentNummer + " niet vewrijderd");
@@ -151,6 +149,7 @@ public class Menu {
         System.out.println("Is student geslaagd voor test?");
         System.out.print("Student nummer: ");
         int studentNummer = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Examen naam: ");
         String examenNaam = scanner.nextLine();
 
@@ -173,7 +172,7 @@ public class Menu {
                 }
             }
         }
-
+        System.out.println();
         mainMenu();
     }
 
@@ -203,10 +202,10 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println();
-        System.out.println("Student met de hoogste score is:");
+        System.out.println("De studenten met de hoogste score zijn:");
 
         for (Student student: Poging.hoogsteScore()) {
-            System.out.println(student.getNaam());
+            System.out.println("Student " + student.getStudentNumber());
         }
 
         mainMenu();

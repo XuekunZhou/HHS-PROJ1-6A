@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 class Poging {
     private Boolean geslaagd;
-    public static ArrayList<Poging> pogingenLijst;
+    public static ArrayList<Poging> pogingenLijst = new ArrayList<>();
     private Examen examen;
     private Student student;
 
@@ -11,6 +11,7 @@ class Poging {
         //Nog ff leeglaten
         this.student = student;
         this.examen  = examen;
+        pogingenLijst.add(this);
         examenAfname();
     }
     public Student getStudent(){
@@ -30,13 +31,14 @@ class Poging {
         ArrayList<Integer> score = new ArrayList();
 
         for (Poging poging: getPogingenLijst()) {
-            if (!studenten.contains(poging.getStudent())) {
-                if (poging.getGeslaagd()) {
+            if (!studenten.contains(poging.student)) {
+                studenten.add(poging.student);
+                if (poging.geslaagd) {
                     score.add(1);
                 }
             } else {
-                if (poging.getGeslaagd()) {
-                    int index = studenten.indexOf(poging.getStudent());
+                if (poging.geslaagd) {
+                    int index = studenten.indexOf(poging.student);
                     int punten = score.get(index) + 1;
                     score.set(index, punten);
                 }
@@ -66,11 +68,13 @@ class Poging {
         Scanner scan = new Scanner(System.in);
 
         int questionGoed = 0;
-        char abc = 'A';
+
 
         for(Vraag vraag: examen.getVragenLijst()) {
             System.out.println();
             System.out.println("Vraag: " + vraag.getToetsVraag());
+
+            char abc = 'A';
 
             for (String optie : vraag.getOpties()) {
                 System.out.println(abc + ": " + optie);
@@ -81,17 +85,17 @@ class Poging {
 
             if (response.equals("A")) {
                 if (vraag.getOpties().get(0).equals(vraag.getAntwoord())) {
-                    questionGoed++;
+                    questionGoed = questionGoed + 2;
                 }
             }
             else if (response.equals("B")) {
                 if (vraag.getOpties().get(1).equals(vraag.getAntwoord())) {
-                    questionGoed++;
+                    questionGoed = questionGoed + 2;
                 }
             }
             else if (response.equals("C")) {
                 if (vraag.getOpties().get(2).equals(vraag.getAntwoord())) {
-                    questionGoed++;
+                    questionGoed = questionGoed + 2;
                 }
             }
         }
@@ -101,6 +105,11 @@ class Poging {
         } else {
             geslaagd = false;
         }
+
+        System.out.println();
+        System.out.println("Score: " + questionGoed);
+
+        Menu.mainMenu();
     }
     public static ArrayList<Poging> getPogingenLijst() {
         return pogingenLijst;

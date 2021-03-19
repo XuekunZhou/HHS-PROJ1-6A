@@ -9,9 +9,9 @@ public class Vraag{
     private String antwoord;
     private ArrayList<String> opties;
 
-    public Vraag(String toetsVraag, String[] opties, String antwoord){
+    public Vraag(String toetsVraag, String[] opties) {
         this.toetsVraag = toetsVraag;
-        this.antwoord = antwoord;
+        this.antwoord = opties[0];
 
         this.opties = new ArrayList<>();
 

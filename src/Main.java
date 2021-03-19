@@ -113,19 +113,19 @@ public class Main {
                         }
                 };
 
-        Examen examen1 = new Examen("Verkeers Toets 1");
+        Examen examen1 = new Examen("Toets 1");
         for (int i = 0; i < examen1vragen.length; i++) {
-            examen1.addVragen(new Vraag(examen1vragen[i], examen1opties[i], examen1opties[i][1]));
+            examen1.addVragen(new Vraag(examen1vragen[i], examen1opties[i]));
         }
 
-        Examen examen2 = new Examen("Verkeers Toets 2");
+        Examen examen2 = new Examen("Toets 2");
         for (int i = 0; i < examen2vragen.length; i++) {
-            examen2.addVragen(new Vraag(examen2vragen[i], examen2opties[i], examen2opties[i][1]));
+            examen2.addVragen(new Vraag(examen2vragen[i], examen2opties[i]));
         }
 
-        Examen examen3 = new Examen("Verkeers Toets 3");
+        Examen examen3 = new Examen("Toets 3");
         for (int i = 0; i < examen3vragen.length; i++) {
-            examen3.addVragen(new Vraag(examen3vragen[i], examen3opties[i], examen3opties[i][1]));
+            examen3.addVragen(new Vraag(examen3vragen[i], examen3opties[i]));
         }
 
         Menu.mainMenu();

@@ -15,9 +15,6 @@ public class Examen {
     }
 
     public String getNaam(){
-        int examennmr = 0;
-        examennmr++;
-        naam = "Examen " + examennmr;
         return this.naam;
     }
 

@@ -6,14 +6,13 @@ public class Student {
     private String achterNaam;
     private Integer studentNumber;
     private static Integer uniekeNummer = 1;
-    private static ArrayList<Student> studentenLijst;
+    private static ArrayList<Student> studentenLijst = new ArrayList<Student>();
 
 
     public Student(String naam, String achterNaam){
         this.naam = naam;
         this.achterNaam = achterNaam;
         this.studentNumber = getUniekeNummer();
-        studentenLijst = new ArrayList<Student>();
         studentenLijst.add(this);
     }
 
@@ -64,8 +63,8 @@ public class Student {
     public static void verwijderStudent(int studentNumber) {
         for (Student student: getStudentenLijst()) {
             if (student.getStudentNumber() == studentNumber) {
-                int i = getStudentenLijst().indexOf(student);
-                getStudentenLijst().remove(i);
+                getStudentenLijst().remove(student);
+                break;
             }
         }
 
