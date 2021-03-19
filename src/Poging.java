@@ -23,18 +23,17 @@ class Poging {
         //Kijk of de poging is geslaagd
         return examen.getVoldoende();
     }
-    public static ArrayList<Student> hoogsteScore(){
+    //public static ArrayList<Student> hoogsteScore(){
         //Nog ff leeglaten
-    }
+    //}
+
     public void examenAfname(){
-        List<Integer> list = new ArrayList<Integer>();
-        int question = 0;
+        int questionGoed = 0;
         for(examen.getExamenLijst) {
-            system.out.println(examen.getExamenLijst[question]);
-            if(examen.getExamenLijst)
+            system.out.println(examen.getExamenLijst);
         }
     }
-    public static getPogingenLijst(){
+    public static void getPogingenLijst(){
         return this.pogingenLijst;
     }
 
