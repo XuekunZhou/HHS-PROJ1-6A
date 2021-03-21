@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -9,21 +10,19 @@ public class Vraag{
     private String antwoord;
     private ArrayList<String> opties;
 
-    public Vraag(String toetsVraag, String[] opties, String antwoord){
+    public Vraag(String toetsVraag, String[] opties) {
         this.toetsVraag = toetsVraag;
-        this.antwoord = antwoord;
+        this.antwoord = opties[0];
 
         this.opties = new ArrayList<>();
 
-        for (int i = 0; i < opties.length; i++) {
-            this.opties.add(opties[i]);
-        }
+        this.opties.addAll(Arrays.asList(opties));
     }
     public void schudOpties() {
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            int randint = random.nextInt(3);
+            int randint = random.nextInt(opties.size());
 
             String holder = opties.get(randint);
             opties.remove(randint);
