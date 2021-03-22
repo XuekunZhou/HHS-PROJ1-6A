@@ -22,11 +22,19 @@ public class Menu {
 
 
         switch (keuze) {
-            case 1 -> examenLijstMenu();
-            case 2 -> studentenLijstMenu();
-            case 3 -> inschrijfMenu();
-            case 4 -> verwijderMenu();
-            case 5 -> {
+            case 1:
+                examenLijstMenu();
+                break;
+            case 2:
+                studentenLijstMenu();
+                break;
+            case 3:
+                inschrijfMenu();
+                break;
+            case 4:
+                verwijderMenu();
+                break;
+            case 5:
                 System.out.print("Student nummer: ");
                 int student = scanner.nextInt();
                 scanner.nextLine();
@@ -47,11 +55,20 @@ public class Menu {
                     }
                 }
                 new Poging(studentTeDoen, examenTeDoen);
-            }
-            case 6 -> studentTestMenu();
-            case 7 -> examenStudentMenu();
-            case 8 -> hoogsteScoreMenu();
-            case 0 -> System.exit(0);
+            break;
+
+            case 6:
+                studentTestMenu();
+                break;
+            case 7:
+                examenStudentMenu();
+                break;
+            case 8:
+                hoogsteScoreMenu();
+                break;
+            case 0:
+                System.exit(0);
+                break;
         }
     }
 
