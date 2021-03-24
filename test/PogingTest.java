@@ -24,7 +24,9 @@ class PogingTest {
     void getPogingenLijst() {
         Poging poging = new Poging(student1);
         ArrayList<Poging> pogingen = new ArrayList();
-        pogingen.add()
+        pogingen.add(poging);
+
+        Assert.assertEquals(pogingen, Poging.pogingenLijst());
     }
 
 }
