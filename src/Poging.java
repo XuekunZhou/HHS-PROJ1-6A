@@ -48,7 +48,7 @@ class Poging {
         int highestScore = 0;
         for (int i : score) {
             if (i > highestScore) {
-                highestScore = i;
+            highestScore = i;
             }
         }
         ArrayList<Student> besteStudenten = new ArrayList<>();
@@ -59,7 +59,7 @@ class Poging {
                 besteStudenten.add(studenten.get(j));
             }
             j++;
-        }
+            }
 
         return besteStudenten;
     }
