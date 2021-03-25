@@ -1,8 +1,8 @@
-import org.junit.jupiter.api.*;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class ExamenTest {
 
@@ -28,7 +28,7 @@ class ExamenTest {
 
     @Test
     void getVoldoende() {
-        assertEquals(6, Examen.getVoldoende());
+        assertEquals((long)6, (long)Examen.getVoldoende());
     }
 
     @Test
