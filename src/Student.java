@@ -28,7 +28,7 @@ public class Student {
         return achterNaam;
     }
 
-    public Integer getUniekeNummer() {
+    private Integer getUniekeNummer() {
         return uniekeNummer++;
     }
 
