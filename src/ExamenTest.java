@@ -2,9 +2,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-class ExamenTest {
+public class ExamenTest {
 
     @Test
     void getNaam() {
@@ -55,6 +55,4 @@ class ExamenTest {
 
     private void assertArrayEquals(ArrayList<Vraag> bevat2, ArrayList<Vraag> bevat) {
     }
-
-
 }

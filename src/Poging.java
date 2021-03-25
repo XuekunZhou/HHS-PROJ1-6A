@@ -14,6 +14,15 @@ class Poging {
         pogingenLijst.add(this);
         examenAfname();
     }
+
+    public Poging(Student student){
+        //Nog ff leeglaten
+        this.student = student;
+        this.examen  = null;
+        pogingenLijst.add(this);
+    }
+
+
     public Student getStudent(){
         //Return de naam van de student
         return this.student;
