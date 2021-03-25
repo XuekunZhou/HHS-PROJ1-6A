@@ -1,17 +1,14 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-<<<<<<< Updated upstream
 import static org.junit.Assert.assertEquals;
-=======
->>>>>>> Stashed changes
 import static org.junit.jupiter.api.Assertions.*;
 
 class PogingTest {
 
     @Test
     void hoogsteScore() {
-<<<<<<< Updated upstream
+
     Student student1 = new Student("Jan", "Smit");
     Student student2 = new Student("Bob", "Rob");
     Poging poging = new Poging(student1);
@@ -22,7 +19,7 @@ class PogingTest {
     studenten.add(student1);
 
     Assert.assertEquals(studenten, Poging.hoogsteScore());
-=======
+
         Student student1 = new Student("Jan", "Smit");
         Student student2 = new Student("Bob", "Rob");
         Poging poging = new Poging(student1);
@@ -33,7 +30,7 @@ class PogingTest {
         studenten.add(student1);
 
         Assert.assertEquals(studenten, Poging.hoogsteScore());
->>>>>>> Stashed changes
+
     }
 
     @Test
