@@ -66,7 +66,7 @@ class Poging {
 
     public void examenAfname(){
         Scanner scan = new Scanner(System.in);
-
+        
         int questionGoed = 0;
 
 
