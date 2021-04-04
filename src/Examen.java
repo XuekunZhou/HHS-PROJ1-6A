@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Examen {
     private String naam;
@@ -35,6 +36,20 @@ public class Examen {
     bevat.add(vraag);
 
     }
+
+    //dit is toegevoegd
+    public void schudVragen() {
+        Random random = new Random();
+
+        for (int i = 0; i < 50; i++) {
+            int randint = random.nextInt(bevat.size());
+
+            Vraag holder = bevat.get(randint);
+            bevat.remove(randint);
+            bevat.add(holder);
+        }
+    }
+    //dit is toegevoegd
 
 
 }

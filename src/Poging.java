@@ -77,9 +77,10 @@ class Poging {
         Scanner scan = new Scanner(System.in);
 
         int questionGoed = 0;
+        examen.schudVragen(); //dit is toegevoegd
 
-
-        for(Vraag vraag: examen.getVragenLijst()) {
+        for(int i = 0; i < 10; i++) { //dit is veranderd
+            Vraag vraag = examen.getVragenLijst().get(i); // dit is verandered
             vraag.schudOpties();
 
             System.out.println();
