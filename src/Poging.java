@@ -77,8 +77,10 @@ class Poging {
         long startTime = System.nanoTime();
         int questionGoed = 0;
 
+        examen.schudVragen();
 
-        for(Vraag vraag: examen.getVragenLijst()) {
+        for(int i = 0; i < 10; i++) {
+            Vraag vraag = examen.getVragenLijst().get(i);
             vraag.schudOpties();
 
             System.out.println();
