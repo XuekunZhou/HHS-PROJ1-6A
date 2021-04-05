@@ -98,16 +98,25 @@ class Poging {
                 case "A":
                     if (vraag.getOpties().get(0).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
+                        System.out.println("Correct!");
+                    } else {
+                        System.out.println("Incorrect!");
                     }
                     break;
                 case "B":
                     if (vraag.getOpties().get(1).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
+                        System.out.println("Correct!");
+                    } else {
+                        System.out.println("Incorrect!");
                     }
                     break;
                 case "C":
                     if (vraag.getOpties().get(2).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
+                        System.out.println("Correct!");
+                    } else {
+                        System.out.println("Incorrect!");
                     }
                     break;
             }
