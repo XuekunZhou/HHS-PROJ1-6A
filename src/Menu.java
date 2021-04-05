@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Menu {
@@ -67,6 +69,21 @@ public class Menu {
                 hoogsteScoreMenu();
                 break;
             case 0:
+                try {
+                    BufferedWriter resultaat = new BufferedWriter(
+                            new FileWriter("C:\\Users\\shann\\OneDrive\\Documents\\Resultaat.txt"));
+
+                    for (Student student1 : Student.getStudentenLijst()){
+                        resultaat.write(student1.getStudentNumber() + " " + student1.getNaam() + " " + student1.getAchterNaam() + "\n");
+                        for (Poging poging: student1.studentGeslaagd()) {
+                            resultaat.write( "is geslaagd voor " + poging.getExamen().getNaam() + "\n");
+                        }
+                    }
+
+                    resultaat.close();
+                } catch (Exception e) {
+                    return;
+                }
                 System.exit(0);
                 break;
         }
@@ -188,6 +205,7 @@ public class Menu {
                     System.out.println(poging.getExamen().getNaam());
                 }
             }
+
         }
 
         mainMenu();
