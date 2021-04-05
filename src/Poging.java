@@ -66,7 +66,7 @@ class Poging {
 
     public void examenAfname(){
         Scanner scan = new Scanner(System.in);
-        
+        long startTime = System.nanoTime();
         int questionGoed = 0;
 
 
@@ -105,8 +105,11 @@ class Poging {
         }
 
         geslaagd = questionGoed >= Examen.getVoldoende();
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
 
         System.out.println();
+        System.out.println("Je deed " + timeElapsed / 1000000000 + " Seconden erover");
         System.out.println("Score: " + questionGoed);
 
         Menu.mainMenu();
