@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
 class Poging {
     private Boolean geslaagd;
     public static ArrayList<Poging> pogingenLijst = new ArrayList<>();
@@ -21,7 +21,6 @@ class Poging {
         this.examen  = null;
         pogingenLijst.add(this);
     }
-
 
     public Student getStudent(){
         //Return de naam van de student
@@ -57,7 +56,7 @@ class Poging {
         int highestScore = 0;
         for (int i : score) {
             if (i > highestScore) {
-            highestScore = i;
+                highestScore = i;
             }
         }
         ArrayList<Student> besteStudenten = new ArrayList<>();
@@ -68,14 +67,14 @@ class Poging {
                 besteStudenten.add(studenten.get(j));
             }
             j++;
-            }
+        }
 
         return besteStudenten;
     }
 
     public void examenAfname(){
         Scanner scan = new Scanner(System.in);
-
+        long startTime = System.nanoTime();
         int questionGoed = 0;
 
 
@@ -98,33 +97,29 @@ class Poging {
                 case "A":
                     if (vraag.getOpties().get(0).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
-                        System.out.println("Correct");
-                    } else {
-                        System.out.println("Fout");
                     }
                     break;
                 case "B":
                     if (vraag.getOpties().get(1).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
-                        System.out.println("Correct");
-                    } else {
-                        System.out.println("Fout");
                     }
                     break;
                 case "C":
                     if (vraag.getOpties().get(2).equals(vraag.getAntwoord())) {
                         questionGoed = questionGoed + 2;
-                        System.out.println("Correct!");
-                    } else {
-                        System.out.println("Fout!");
                     }
                     break;
             }
         }
 
         geslaagd = questionGoed >= Examen.getVoldoende();
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
 
         System.out.println();
+        long convertSeconds = TimeUnit.SECONDS.convert(timeElapsed, TimeUnit.NANOSECONDS);
+        long convertMinutes = TimeUnit.MINUTES.convert(timeElapsed, TimeUnit.NANOSECONDS);
+        System.out.println("Je deed er " + convertMinutes + " Minuten en " + convertSeconds + " Seconden erover" );
         System.out.println("Score: " + questionGoed);
 
         Menu.mainMenu();
@@ -134,3 +129,5 @@ class Poging {
     }
 
 }
+
+
