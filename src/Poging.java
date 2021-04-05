@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
 class Poging {
     private Boolean geslaagd;
     public static ArrayList<Poging> pogingenLijst = new ArrayList<>();
@@ -109,7 +109,9 @@ class Poging {
         long timeElapsed = endTime - startTime;
 
         System.out.println();
-        System.out.println("Je deed " + timeElapsed / 1000000000 + " Seconden erover");
+        long convertSeconds = TimeUnit.SECONDS.convert(timeElapsed, TimeUnit.NANOSECONDS);
+        long convertMinutes = TimeUnit.MINUTES.convert(timeElapsed, TimeUnit.NANOSECONDS);
+        System.out.println("Je deed er " + convertMinutes + " Minuten en " + convertSeconds + " Seconden erover" );
         System.out.println("Score: " + questionGoed);
 
         Menu.mainMenu();
